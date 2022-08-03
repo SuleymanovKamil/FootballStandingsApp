@@ -11,20 +11,20 @@ struct ErrorView: View {
     let errorText: String
     
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             HStack {
                 Image(systemName: "exclamationmark.shield")
                 
                 Text("Произошла ошибка!")
             }
             .font(.title)
-            .foregroundColor(.white)
-            .padding()
+            .padding([.horizontal, .top])
             
             Text(errorText)
+                .padding([.horizontal, .bottom])
         }
-        
-    .background(Color.mint.cornerRadius(10))
+        .foregroundColor(.white)
+        .background(Color.mint.cornerRadius(10))
     }
 }
 

@@ -8,8 +8,7 @@
 import Foundation
 
 struct SeasonDetail: Codable {
-    let id, name, abbreviation, startDate: String
-    let endDate: String
-    let hasStandings: Bool
+    let name, abbreviation, seasonDisplay: String?
+    let season: Int?
+    let standings: [Standing]?
 }
-

@@ -9,5 +9,5 @@ import Foundation
 
 struct Seasons: Codable {
     let status: Bool
-    let data: SeasonDescription
+    let data: SeasonDetail?
 }

@@ -20,22 +20,26 @@ struct AllLeaguesMainView: View {
         NavigationView {
             ZStack(alignment: .center) {
                 List(store.leagues, id: \.id) { league in
-                    NavigationLink {
-                        Text(league.name)
-                    } label: {
-                        HStack(spacing: 12) {
-                            AsyncImage(url: URL(string: league.logos.light)) { image in
-                                image.resizable()
-                            } placeholder: {
-                                Image(systemName: "photo.circle")
-                                    .resizable()
-                                    .foregroundColor(.gray)
-                                    .frame(width: 50, height: 50)
-                            }
-                            .frame(width: 50, height: 50)
-                            
-                            Text(league.name)
+                    HStack(spacing: 12) {
+                        AsyncImage(url: URL(string: league.logos.light)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            Image(systemName: "photo.circle")
+                                .resizable()
+                                .foregroundColor(.gray)
+                                .frame(width: 50, height: 50)
                         }
+                        .frame(width: 50, height: 50)
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(league.name)
+                            Text(league.abbr)
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .onTapGesture {
+                        presenter.showLeagueDetailScreen(with: league)
                     }
                 }
                 .navigationBarTitle("All Leagues")
@@ -44,6 +48,12 @@ struct AllLeaguesMainView: View {
                 if store.isErrorViewActive {
                     ErrorView(errorText: store.errorDescription)
                 }
+                
+                NavigationLink(isActive: $store.showLeagueDetailView) {
+                    if let presenter = store.showLeagueDetailPresenter {
+                        LeagueDetailView(store: presenter, presenter: presenter)
+                    }
+                } label: { EmptyView() }
             }
         }
     }

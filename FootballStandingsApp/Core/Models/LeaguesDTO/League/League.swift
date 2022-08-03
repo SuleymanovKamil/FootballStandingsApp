@@ -8,6 +8,6 @@
 import Foundation
 
 struct League: Codable {
-    let id, name: String
+    let id, name, abbr: String
     let logos: Logo
 }

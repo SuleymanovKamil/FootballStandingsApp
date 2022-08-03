@@ -22,7 +22,6 @@ extension HTTPClient {
         
         do {
             let (data, response) = try await URLSession.shared.data(from: request)
-            
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }

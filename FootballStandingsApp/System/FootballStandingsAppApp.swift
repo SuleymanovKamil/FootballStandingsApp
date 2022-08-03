@@ -12,7 +12,7 @@ struct FootballStandingsAppApp: App {
     var body: some Scene {
         WindowGroup {
             let presenter = AllLeaguesMainViewPresenter(footballStandingsService: FootballStandingsRequest())
-            AllLeaguesMainView(store:presenter, presenter: presenter)
+            AllLeaguesMainView(store: presenter, presenter: presenter)
         }
     }
 }
