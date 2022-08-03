@@ -11,7 +11,7 @@ import SwiftUI
 struct FootballStandingsAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AllLeaguesMainView()
         }
     }
 }
