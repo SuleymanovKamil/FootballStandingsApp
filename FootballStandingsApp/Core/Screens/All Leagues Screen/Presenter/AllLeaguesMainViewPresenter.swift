@@ -9,13 +9,21 @@ import SwiftUI
 
 protocol AllLeaguesMainViewProtocol: AnyObject {
     func fetchLeagues() async
-    func showErrorView()
+    func showErrorView(description: String)
 }
 
-class AllLeaguesMainViewPresenter: ObservableObject, AllLeaguesMainViewProtocol {
+class AllLeaguesMainViewPresenter: ObservableObject {
+    
+    //MARK: - Service
+    
+    let footballStandingsService: FootballStandingsService
+    
+    //MARK: - Properties
+    
     @Published var currentLeague: String?
     @Published var leagues: [League] = []
-    let footballStandingsService: FootballStandingsService
+    @Published var isErrorViewActive = false
+    @Published var errorDescription = String()
     
     init(footballStandingsService: FootballStandingsService) {
         self.footballStandingsService = FootballStandingsRequest()
@@ -23,20 +31,26 @@ class AllLeaguesMainViewPresenter: ObservableObject, AllLeaguesMainViewProtocol 
             await fetchLeagues()
         }
     }
+    
+}
 
+//MARK: - AllLeaguesMainViewProtocol
+
+extension AllLeaguesMainViewPresenter: AllLeaguesMainViewProtocol {
+    
     @MainActor func fetchLeagues() async {
         let result = await footballStandingsService.fetchLeagues()
         switch result {
         case .success(let data):
             leagues = data.data
         case .failure(let error):
-            showErrorView()
-            print(#function, error.localizedDescription)
+            showErrorView(description: error.localizedDescription)
         }
     }
     
-    func showErrorView() {
-        
+    func showErrorView(description: String) {
+        errorDescription = description
+        isErrorViewActive = true
     }
     
 }
