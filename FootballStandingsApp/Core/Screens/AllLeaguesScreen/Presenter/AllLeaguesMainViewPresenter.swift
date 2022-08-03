@@ -13,6 +13,7 @@ protocol AllLeaguesMainViewProtocol: AnyObject {
 }
 
 class AllLeaguesMainViewPresenter: ObservableObject, AllLeaguesMainViewProtocol {
+    @Published var currentLeague: String?
     @Published var leagues: [League] = []
     let footballStandingsService: FootballStandingsService
     
