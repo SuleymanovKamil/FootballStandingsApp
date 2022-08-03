@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Season: Codable {
+struct Seasons: Codable {
     let status: Bool
     let data: SeasonDescription
 }
