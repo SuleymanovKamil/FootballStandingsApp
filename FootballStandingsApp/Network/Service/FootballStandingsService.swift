@@ -16,19 +16,19 @@ protocol FootballStandingsService {
 
 struct FootballStandingsRequest: HTTPClient, FootballStandingsService {
     func fetchLeagues() async -> Result<Leagues, RequestError> {
-        return await sendRequest(endpoint: Endpoints.getLeagues, responseModel: Leagues.self)
+        return await sendRequest(endpoint: Endpoint.getLeagues, responseModel: Leagues.self)
     }
     
     func fetchLeagueDetail(id: String) async -> Result<Leagues, RequestError> {
-        return await sendRequest(endpoint: Endpoints.getLeagueDetail(id: id), responseModel: Leagues.self)
+        return await sendRequest(endpoint: Endpoint.getLeagueDetail(id: id), responseModel: Leagues.self)
     }
     
     func fetchSeasons(id: String) async -> Result<Seasons, RequestError> {
-        return await sendRequest(endpoint: Endpoints.getSeasons(id: id), responseModel: Seasons.self)
+        return await sendRequest(endpoint: Endpoint.getSeasons(id: id), responseModel: Seasons.self)
     }
     
     func fetchSeasonDetail(id: String) async -> Result<SeasonDetail, RequestError> {
-        return await sendRequest(endpoint: Endpoints.seasonDetail(id: id), responseModel: SeasonDetail.self)
+        return await sendRequest(endpoint: Endpoint.seasonDetail(id: id), responseModel: SeasonDetail.self)
     }
     
 }

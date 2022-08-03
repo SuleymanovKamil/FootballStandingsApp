@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Endpoints: Endpoint {
+enum Endpoint: EndpointProrocol {
     case getLeagues
     case getLeagueDetail(id: String)
     case getSeasons(id: String)
