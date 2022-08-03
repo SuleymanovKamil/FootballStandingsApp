@@ -13,7 +13,7 @@ protocol HTTPClient {
 
 extension HTTPClient {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError> {
-        guard let url = URL(string: API.baseURL + endpoint.path) else {
+        guard let url = URL(string: endpoint.baseURL + endpoint.path) else {
             return .failure(.invalidURL)
         }
         

@@ -18,13 +18,12 @@
 		6BC2AC80289AE19000081838 /* SeasonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC7F289AE19000081838 /* SeasonDetail.swift */; };
 		6BC2AC83289AE21A00081838 /* SeasonDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC82289AE21A00081838 /* SeasonDescription.swift */; };
 		6BC2AC92289AE46C00081838 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC86289AE46C00081838 /* Endpoints.swift */; };
-		6BC2AC93289AE46C00081838 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC88289AE46C00081838 /* API.swift */; };
-		6BC2AC94289AE46C00081838 /* RequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC8A289AE46C00081838 /* RequestEncoder.swift */; };
 		6BC2AC95289AE46C00081838 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC8B289AE46C00081838 /* HTTPMethod.swift */; };
 		6BC2AC96289AE46C00081838 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC8C289AE46C00081838 /* HTTPClient.swift */; };
 		6BC2AC97289AE46C00081838 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC8D289AE46C00081838 /* RequestError.swift */; };
 		6BC2AC98289AE46C00081838 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC8E289AE46C00081838 /* Endpoint.swift */; };
 		6BC2AC99289AE46C00081838 /* FootballStandingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC91289AE46C00081838 /* FootballStandingsService.swift */; };
+		6BC2AC9C289AEB0600081838 /* AllLeaguesMainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2AC9B289AEB0600081838 /* AllLeaguesMainViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,13 +39,12 @@
 		6BC2AC7F289AE19000081838 /* SeasonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetail.swift; sourceTree = "<group>"; };
 		6BC2AC82289AE21A00081838 /* SeasonDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDescription.swift; sourceTree = "<group>"; };
 		6BC2AC86289AE46C00081838 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
-		6BC2AC88289AE46C00081838 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		6BC2AC8A289AE46C00081838 /* RequestEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestEncoder.swift; sourceTree = "<group>"; };
 		6BC2AC8B289AE46C00081838 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		6BC2AC8C289AE46C00081838 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		6BC2AC8D289AE46C00081838 /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		6BC2AC8E289AE46C00081838 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		6BC2AC91289AE46C00081838 /* FootballStandingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootballStandingsService.swift; sourceTree = "<group>"; };
+		6BC2AC9B289AEB0600081838 /* AllLeaguesMainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLeaguesMainViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,23 +106,23 @@
 			isa = PBXGroup;
 			children = (
 				6BC2AC6B289ADD7400081838 /* Models */,
-				6BC2AC6A289ADD6400081838 /* Presenter */,
-				6BC2AC69289ADCCF00081838 /* Views */,
+				6BC2AC69289ADCCF00081838 /* Screens */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		6BC2AC69289ADCCF00081838 /* Views */ = {
+		6BC2AC69289ADCCF00081838 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				6BC2AC6C289ADDBA00081838 /* AllLeaguesScreen */,
 			);
-			path = Views;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		6BC2AC6A289ADD6400081838 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				6BC2AC9B289AEB0600081838 /* AllLeaguesMainViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -141,7 +139,8 @@
 		6BC2AC6C289ADDBA00081838 /* AllLeaguesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				6BC2AC6D289ADDF600081838 /* AllLeaguesMainView.swift */,
+				6BC2AC6A289ADD6400081838 /* Presenter */,
+				6BC2AC9A289AEAB000081838 /* View */,
 			);
 			path = AllLeaguesScreen;
 			sourceTree = "<group>";
@@ -218,9 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				6BC2AC85289AE46C00081838 /* Endpoints */,
-				6BC2AC87289AE46C00081838 /* API routes */,
 				6BC2AC89289AE46C00081838 /* Base */,
-				6BC2AC8F289AE46C00081838 /* Services */,
+				6BC2AC8F289AE46C00081838 /* Service */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -233,18 +231,9 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
-		6BC2AC87289AE46C00081838 /* API routes */ = {
-			isa = PBXGroup;
-			children = (
-				6BC2AC88289AE46C00081838 /* API.swift */,
-			);
-			path = "API routes";
-			sourceTree = "<group>";
-		};
 		6BC2AC89289AE46C00081838 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				6BC2AC8A289AE46C00081838 /* RequestEncoder.swift */,
 				6BC2AC8B289AE46C00081838 /* HTTPMethod.swift */,
 				6BC2AC8C289AE46C00081838 /* HTTPClient.swift */,
 				6BC2AC8D289AE46C00081838 /* RequestError.swift */,
@@ -253,20 +242,20 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		6BC2AC8F289AE46C00081838 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				6BC2AC90289AE46C00081838 /* Football Standings Service */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		6BC2AC90289AE46C00081838 /* Football Standings Service */ = {
+		6BC2AC8F289AE46C00081838 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				6BC2AC91289AE46C00081838 /* FootballStandingsService.swift */,
 			);
-			path = "Football Standings Service";
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6BC2AC9A289AEAB000081838 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2AC6D289ADDF600081838 /* AllLeaguesMainView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,15 +329,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BC2AC97289AE46C00081838 /* RequestError.swift in Sources */,
-				6BC2AC94289AE46C00081838 /* RequestEncoder.swift in Sources */,
 				6BC2AC71289ADEE200081838 /* Leagues.swift in Sources */,
+				6BC2AC9C289AEB0600081838 /* AllLeaguesMainViewPresenter.swift in Sources */,
 				6BC2AC96289AE46C00081838 /* HTTPClient.swift in Sources */,
 				6BC2AC98289AE46C00081838 /* Endpoint.swift in Sources */,
 				6BC2AC92289AE46C00081838 /* Endpoints.swift in Sources */,
 				6BC2AC78289ADFEF00081838 /* Logo.swift in Sources */,
 				6BC2AC6E289ADDF600081838 /* AllLeaguesMainView.swift in Sources */,
 				6BC2AC99289AE46C00081838 /* FootballStandingsService.swift in Sources */,
-				6BC2AC93289AE46C00081838 /* API.swift in Sources */,
 				6BC2AC75289ADFC600081838 /* League.swift in Sources */,
 				6BC2AC7D289AE13900081838 /* Seasons.swift in Sources */,
 				6BC2AC95289AE46C00081838 /* HTTPMethod.swift in Sources */,
@@ -411,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -465,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -491,6 +479,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,6 +509,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

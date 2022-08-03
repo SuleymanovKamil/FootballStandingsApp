@@ -11,7 +11,8 @@ import SwiftUI
 struct FootballStandingsAppApp: App {
     var body: some Scene {
         WindowGroup {
-            AllLeaguesMainView()
+            let presenter = AllLeaguesMainViewPresenter(footballStandingsService: FootballStandingsRequest())
+            AllLeaguesMainView(store:presenter, presenter: presenter)
         }
     }
 }

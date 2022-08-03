@@ -9,24 +9,22 @@ import Foundation
 
 enum Endpoints: Endpoint {
     case getLeagues
-    case getLeagueDetail
-    case getSeasons
-    case seasonDetail
+    case getLeagueDetail(id: String)
+    case getSeasons(id: String)
+    case seasonDetail(id: String)
     
     var path: String {
         switch self {
         case .getLeagues:
-            return API.getLeagues
-        case .getLeagueDetail:
-            return API.getLeagueDetail
-        case .getSeasons:
-            return API.getSeasons
-        case .seasonDetail:
-            return API.seasonDetail
+            return "leagues"
+        case .getLeagueDetail(let id):
+            return "leagues/\(id)"
+        case .getSeasons(let id):
+            return "leagues/\(id)/seasons"
+        case .seasonDetail(let id):
+            return "leagues/\(id)/standings"
         }
     }
     
-    var method: RequestMethod {
-        return .get
-    }
+    var method: RequestMethod { .get }
 }
