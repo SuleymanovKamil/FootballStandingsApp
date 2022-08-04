@@ -13,15 +13,7 @@ struct LeaguesList: View {
     var body: some View {
         List(store.leagues, id: \.id) { league in
             HStack(spacing: 12) {
-                AsyncImage(url: URL(string: league.logos.light)) { image in
-                    image.resizable()
-                } placeholder: {
-                    Image(systemName: "photo.circle")
-                        .resizable()
-                        .foregroundColor(.gray)
-                        .frame(width: 50, height: 50)
-                }
-                .frame(width: 50, height: 50)
+                AsyncImageView(url: league.logos.light, width: 50, height: 50)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(league.name)

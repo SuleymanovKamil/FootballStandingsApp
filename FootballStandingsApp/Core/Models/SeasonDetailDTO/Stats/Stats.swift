@@ -7,14 +7,6 @@
 
 import Foundation
 
-
-struct SeasonDescription: Codable {
-    let year: Int
-    let startDate, endDate, displayName: String
-    let types: [SeasonDetail]
-}
-
-
 struct Stats: Codable {
     let name: String?
     let displayName: String?

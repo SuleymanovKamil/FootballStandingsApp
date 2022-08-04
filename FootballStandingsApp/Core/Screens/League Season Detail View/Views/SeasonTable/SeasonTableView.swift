@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SeasonTableView: View {
-    @ObservedObject private var store: LeagueSeasonDetailPresenter
-    private var presenter: LeagueSeasonDetailProtocol
+    @ObservedObject var store: LeagueSeasonDetailPresenter
+    var presenter: LeagueSeasonDetailProtocol
     
     init(store: LeagueSeasonDetailPresenter, presenter: LeagueSeasonDetailProtocol) {
         self.store = store
@@ -21,12 +21,8 @@ struct SeasonTableView: View {
             case .loading:
                 ProgressView()
             case .loaded:
-                VStack{
-                    if let season = store.season {
-                        Text(season.name)
-                        Text(season.seasonDisplay)
-                     
-                    }
+                ScrollView {
+                    SeasonRank(store: store, presenter: presenter)
                 }
             case .error:
                 ErrorView(errorText: store.errorDescription)

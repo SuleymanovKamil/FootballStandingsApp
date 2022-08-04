@@ -32,7 +32,7 @@ class LeagueSeasonDetailPresenter: ObservableObject {
             await fetchSeason(id: league.id, year: year)
         }
     }
-    
+ 
 }
 
 //MARK: - AllLeaguesMainViewProtocol
@@ -44,6 +44,7 @@ extension LeagueSeasonDetailPresenter: LeagueSeasonDetailProtocol {
         case .success(let data):
             season = data.data
             status = .loaded
+            print(data.data)
         case .failure(let error):
             showErrorView(description: error.localizedDescription)
             status = .error
