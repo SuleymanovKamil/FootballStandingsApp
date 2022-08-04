@@ -34,7 +34,12 @@ struct LeaguesList: View {
                 presenter.showLeagueDetailScreen(with: league)
             }
         }
-        .navigationBarTitle("All Leagues")
-        .listStyle(.plain)
+    }
+}
+
+struct LeaguesList_Previews: PreviewProvider {
+    static var previews: some View {
+        let presenter = AllLeaguesMainViewPresenter(footballStandingsService: FootballStandingsRequest())
+        LeaguesList(store: presenter, presenter: presenter)
     }
 }

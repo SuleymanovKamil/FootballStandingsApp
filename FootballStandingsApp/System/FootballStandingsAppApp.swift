@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct FootballStandingsAppApp: App {
+    init() {
+      UITableViewCell.appearance().selectionStyle = .none
+    }
     var body: some Scene {
         WindowGroup {
             let presenter = AllLeaguesMainViewPresenter(footballStandingsService: FootballStandingsRequest())
