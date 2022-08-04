@@ -16,7 +16,24 @@ struct SeasonTableView: View {
         self.presenter = presenter
     }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            switch store.status {
+            case .loading:
+                ProgressView()
+            case .loaded:
+                VStack{
+                    if let season = store.season {
+                        Text(season.name)
+                        Text(season.seasonDisplay)
+                     
+                    }
+                }
+            case .error:
+                ErrorView(errorText: store.errorDescription)
+            }
+        }
+        .navigationBarTitle(store.season?.seasonDisplay ?? "")
+        
     }
 }
 

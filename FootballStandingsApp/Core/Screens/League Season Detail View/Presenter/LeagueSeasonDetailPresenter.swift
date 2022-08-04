@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol LeagueSeasonDetailProtocol: errorViewProtocol {
-    func fetchSeason(id: String) async
+    func fetchSeason(id: String, year: Int) async
 }
 
 class LeagueSeasonDetailPresenter: ObservableObject {
@@ -22,13 +22,14 @@ class LeagueSeasonDetailPresenter: ObservableObject {
     @Published var status: ViewStatus = .loading
     @Published var isErrorViewActive = false
     @Published var errorDescription = String()
+    @Published var season: SeasonDetailData?
     var league: League
     
-    init(league: League, footballStandingsService: FootballStandingsService) {
+    init(league: League, year: Int, footballStandingsService: FootballStandingsService) {
         self.league = league
         self.footballStandingsService = FootballStandingsRequest()
         Task {
-            await fetchSeason(id: league.id)
+            await fetchSeason(id: league.id, year: year)
         }
     }
     
@@ -37,10 +38,11 @@ class LeagueSeasonDetailPresenter: ObservableObject {
 //MARK: - AllLeaguesMainViewProtocol
 
 extension LeagueSeasonDetailPresenter: LeagueSeasonDetailProtocol {
-    @MainActor func fetchSeason(id: String) async {
-        let result = await footballStandingsService.fetchSeasonDetail(id: id)
+    @MainActor func fetchSeason(id: String, year: Int) async {
+        let result = await footballStandingsService.fetchSeasonDetail(id: id, year: year)
         switch result {
         case .success(let data):
+            season = data.data
             status = .loaded
         case .failure(let error):
             showErrorView(description: error.localizedDescription)

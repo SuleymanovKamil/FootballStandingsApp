@@ -9,7 +9,7 @@ import SwiftUI
 
 protocol LeagueDetailProtocol: errorViewProtocol {
     func fetchSeason(with leagueID: String) async
-    func showSeasonsDetailScreen()
+    func showSeasonsDetailScreen(year: Int)
 }
 
 class LeagueDetailPresenter: ObservableObject {
@@ -63,8 +63,8 @@ extension LeagueDetailPresenter: LeagueDetailProtocol {
         }
     }
     
-    func showSeasonsDetailScreen() {
-        let leagueSeasonDetailPresenter = LeagueSeasonDetailPresenter(league: league, footballStandingsService: footballStandingsService)
+    func showSeasonsDetailScreen(year: Int) {
+        let leagueSeasonDetailPresenter = LeagueSeasonDetailPresenter(league: league, year: year, footballStandingsService: footballStandingsService)
         self.leagueSeasonDetailPresenter = leagueSeasonDetailPresenter
         showSeasonsDetailView = true
     }

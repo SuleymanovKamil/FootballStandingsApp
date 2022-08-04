@@ -35,7 +35,7 @@ struct SeasonList: View {
                     .padding()
                     .listRowBackground(Color.white)
                     .onTapGesture {
-                        store.showSeasonsDetailScreen()
+                        store.showSeasonsDetailScreen(year: season.year)
                     }
                 }
             }
@@ -73,7 +73,7 @@ extension SeasonList {
             }
             .foregroundColor(.blue)
         }
-        .buttonStyle(PlainButtonStyle()) 
+        .buttonStyle(PlainButtonStyle())
     }
     private func seasonHistory(season: Season) -> some View {
         VStack(alignment: .leading, spacing: 6) {
