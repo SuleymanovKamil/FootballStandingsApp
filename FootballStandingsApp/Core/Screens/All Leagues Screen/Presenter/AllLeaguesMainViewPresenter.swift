@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-enum ViewStatus {
-    case loading, loaded, error
-}
-
-protocol errorViewProtocol: AnyObject {
-    func showErrorView(description: String)
-    var isErrorViewActive: Bool { set get }
-    var status: ViewStatus { get set}
-}
-
 protocol AllLeaguesMainViewProtocol: errorViewProtocol {
     func fetchLeagues() async
     func showLeagueDetailScreen(with league: League)

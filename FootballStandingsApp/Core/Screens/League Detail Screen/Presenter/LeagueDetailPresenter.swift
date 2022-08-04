@@ -25,7 +25,16 @@ class LeagueDetailPresenter: ObservableObject {
     @Published var seasons: SeasonDetail?
     @Published var isErrorViewActive = false
     @Published var errorDescription = String()
+    @Published var currentSeason = String()
+    @Published var showDetail = false
     @Published var showAllSeasonsView = false
+    var isSeasonHasHistory: Bool {
+        guard let season = seasons?.seasons else {
+            return false
+        }
+        
+        return season.count > 1
+    }
     
     init(league: League, footballStandingsService: FootballStandingsService) {
         self.league = league

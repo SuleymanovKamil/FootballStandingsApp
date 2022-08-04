@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct LeagueDetailView: View {
-    @ObservedObject private var store: LeagueDetailPresenter
-    private var presenter: LeagueDetailProtocol
-    @State private var currentSeason = ""
-    @State private var showDetail = false
+    @ObservedObject var store: LeagueDetailPresenter
+    var presenter: LeagueDetailProtocol
     
     init(store: LeagueDetailPresenter, presenter: LeagueDetailProtocol) {
         self.store = store
@@ -25,49 +23,7 @@ struct LeagueDetailView: View {
                 case .loading:
                     ProgressView()
                 case .loaded:
-                    if let seasons = store.seasons {
-                        List(seasons.seasons, id: \.year) { season in
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(season.displayName)
-                                    .font(.callout)
-                                
-                                Text("\(season.startDate.dateToString(style: .short)) - \(season.endDate.dateToString(style: .short))")
-                                    .font(.caption2)
-                                
-                                if season.types.count > 1 {
-                                    Button {
-                                        currentSeason = season.displayName
-                                        showDetail = true
-                                    } label: {
-                                        Text(showDetail && currentSeason == season.displayName ? "Hide" : "Show season history")
-                                            .font(.callout)
-                                            .foregroundColor(.blue)
-                                    }
-                                    
-                                    if showDetail && currentSeason == season.displayName {
-                                        VStack(alignment: .leading, spacing: 6) {
-                                            ForEach(season.types, id: \.id) { type in
-                                                HStack {
-                                                    Text(type.name)
-                                                    
-                                                    Text("\(type.startDate.dateToString(style: .short)) - \(type.endDate.dateToString(style: .short))")
-                                                        .font(.caption2)
-                                                    
-                                                    Spacer()
-                                                }
-                                                .font(.caption2)
-                                            }
-                                        }
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .background(Color(UIColor.lightGray))
-                                    }
-                                }
-                            }
-                            .padding(.bottom, 4)
-                            .listRowBackground(Color.clear)
-                        }
-                    }
+                    SeasonList(store: store, presenter: presenter)
                 case .error:
                     ErrorView(errorText: store.errorDescription)
                 }
