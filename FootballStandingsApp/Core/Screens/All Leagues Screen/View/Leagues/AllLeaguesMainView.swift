@@ -34,7 +34,7 @@ struct AllLeaguesMainView: View {
                     }
                 } label: { EmptyView() }
             }
-            .navigationBarTitle("All Leagues")
+            .navigationBarTitle("Leagues")
         }
     }
 }

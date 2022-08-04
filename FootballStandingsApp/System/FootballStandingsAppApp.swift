@@ -16,6 +16,7 @@ struct FootballStandingsAppApp: App {
         WindowGroup {
             let presenter = AllLeaguesMainViewPresenter(footballStandingsService: FootballStandingsRequest())
             AllLeaguesMainView(store: presenter, presenter: presenter)
+                .preferredColorScheme(.light)
         }
     }
 }

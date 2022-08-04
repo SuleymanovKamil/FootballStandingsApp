@@ -29,7 +29,7 @@ struct LeagueDetailView: View {
                 }
             }
         }
-        .navigationBarTitle(Text(store.league.name), displayMode: .inline)
+        .navigationTitle("Seasons")
     }
 }
 

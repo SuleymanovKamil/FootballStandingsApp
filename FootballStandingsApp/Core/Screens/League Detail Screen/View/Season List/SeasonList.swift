@@ -17,21 +17,22 @@ struct SeasonList: View {
                 List(seasons.seasons, id: \.year) { season in
                     VStack(alignment: .leading, spacing: 6) {
                         Text(season.displayName)
-                            .font(.callout)
+                            .font(.headline)
                         
-                        Text("\(season.startDate.dateToString(style: .short)) - \(season.endDate.dateToString(style: .short))")
+                        Text("Season period: \(season.startDate.dateToString(style: .short)) - \(season.endDate.dateToString(style: .short))")
                             .font(.caption2)
                         
                         if store.isSeasonHasHistory {
                             showHistoryButton(season: season)
+                            
                             let isHistoryShowed = store.showDetail && store.currentSeason == season.displayName
                             if isHistoryShowed {
                                 seasonHistory(season: season)
                             }
                         }
                     }
-                    .padding(.bottom, 4)
-                    .listRowBackground(Color.clear)
+                    .padding()
+                    .listRowBackground(Color.white)
                 }
             }
         }
