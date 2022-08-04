@@ -46,7 +46,7 @@ class LeagueDetailPresenter: ObservableObject {
     
 }
 
-//MARK: - AllLeaguesMainViewProtocol
+//MARK: - LeagueDetailProtocol
 
 extension LeagueDetailPresenter: LeagueDetailProtocol {
     @MainActor func fetchSeason(with leagueID: String) async {

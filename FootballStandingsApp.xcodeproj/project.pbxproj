@@ -38,6 +38,10 @@
 		6BC2ACD1289BAB3200081838 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2ACD0289BAB3200081838 /* String+Date.swift */; };
 		6BC2ACD3289BBBC300081838 /* ViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2ACD2289BBBC300081838 /* ViewStatus.swift */; };
 		6BC2ACD6289BBC1100081838 /* ErrorViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2ACD5289BBC1100081838 /* ErrorViewProtocol.swift */; };
+		6BC2ACDD289BDA9300081838 /* SeasonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2ACDC289BDA9300081838 /* SeasonTableView.swift */; };
+		6BC2ACDF289BDAA900081838 /* LeagueSeasonDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2ACDE289BDAA900081838 /* LeagueSeasonDetailPresenter.swift */; };
+		6BC2ACE2289BDC1D00081838 /* SeasonDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2ACE1289BDC1D00081838 /* SeasonDetailModel.swift */; };
+		6BC2ACE5289BDD0400081838 /* SeasonDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2ACE4289BDD0400081838 /* SeasonDetailData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +77,10 @@
 		6BC2ACD0289BAB3200081838 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		6BC2ACD2289BBBC300081838 /* ViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStatus.swift; sourceTree = "<group>"; };
 		6BC2ACD5289BBC1100081838 /* ErrorViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewProtocol.swift; sourceTree = "<group>"; };
+		6BC2ACDC289BDA9300081838 /* SeasonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTableView.swift; sourceTree = "<group>"; };
+		6BC2ACDE289BDAA900081838 /* LeagueSeasonDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSeasonDetailPresenter.swift; sourceTree = "<group>"; };
+		6BC2ACE1289BDC1D00081838 /* SeasonDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailModel.swift; sourceTree = "<group>"; };
+		6BC2ACE4289BDD0400081838 /* SeasonDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				6BC2AC68289ADCC000081838 /* Core */,
-				6BC2AC84289AE46C00081838 /* Network */,
+				6BC2AC84289AE46C00081838 /* Networking */,
 				6BC2ACCE289BAB1100081838 /* Extensions */,
 				6BC2AC67289ADCA100081838 /* System */,
 				6BC2AC5F289ADC9100081838 /* Preview Content */,
@@ -144,6 +152,7 @@
 		6BC2AC69289ADCCF00081838 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6BC2ACD8289BDA3C00081838 /* League Season Detail View */,
 				6BC2AC9D289B11EE00081838 /* League Detail Screen */,
 				6BC2AC6C289ADDBA00081838 /* All Leagues Screen */,
 			);
@@ -161,7 +170,7 @@
 		6BC2AC6B289ADD7400081838 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6BC2ACC1289B9A8100081838 /* StandinsDTO */,
+				6BC2ACC1289B9A8100081838 /* SeasonDetailDTO */,
 				6BC2AC7A289AE11C00081838 /* SeasonsDTO */,
 				6BC2AC6F289ADE9D00081838 /* LeaguesDTO */,
 				6BC2ACD4289BBBD600081838 /* ViewStatus */,
@@ -174,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				6BC2AC6A289ADD6400081838 /* Presenter */,
-				6BC2AC9A289AEAB000081838 /* View */,
+				6BC2AC9A289AEAB000081838 /* Views */,
 			);
 			path = "All Leagues Screen";
 			sourceTree = "<group>";
@@ -248,14 +257,14 @@
 			path = Stats;
 			sourceTree = "<group>";
 		};
-		6BC2AC84289AE46C00081838 /* Network */ = {
+		6BC2AC84289AE46C00081838 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				6BC2AC85289AE46C00081838 /* Endpoints */,
 				6BC2AC89289AE46C00081838 /* Base */,
 				6BC2AC8F289AE46C00081838 /* Service */,
 			);
-			path = Network;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		6BC2AC85289AE46C00081838 /* Endpoints */ = {
@@ -285,19 +294,19 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		6BC2AC9A289AEAB000081838 /* View */ = {
+		6BC2AC9A289AEAB000081838 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				6BC2ACCB289BA18900081838 /* Leagues List */,
 				6BC2ACCC289BA19100081838 /* Leagues */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6BC2AC9D289B11EE00081838 /* League Detail Screen */ = {
 			isa = PBXGroup;
 			children = (
-				6BC2ACA8289B297600081838 /* View */,
+				6BC2ACA8289B297600081838 /* Views */,
 				6BC2ACA7289B296D00081838 /* Presenter */,
 			);
 			path = "League Detail Screen";
@@ -319,13 +328,13 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		6BC2ACA8289B297600081838 /* View */ = {
+		6BC2ACA8289B297600081838 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				6BC2ACC9289BA17700081838 /* League Detail */,
 				6BC2ACCA289BA17F00081838 /* Season List */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6BC2ACAF289B3D9B00081838 /* Standing */ = {
@@ -376,16 +385,18 @@
 			path = SeasonType;
 			sourceTree = "<group>";
 		};
-		6BC2ACC1289B9A8100081838 /* StandinsDTO */ = {
+		6BC2ACC1289B9A8100081838 /* SeasonDetailDTO */ = {
 			isa = PBXGroup;
 			children = (
+				6BC2ACE3289BDCF500081838 /* Season Detail Data */,
+				6BC2ACE0289BDBFE00081838 /* Season Detail Model */,
 				6BC2ACAF289B3D9B00081838 /* Standing */,
 				6BC2ACB7289B3E5000081838 /* Team */,
 				6BC2ACBA289B3E9E00081838 /* Team Logo */,
 				6BC2AC81289AE20F00081838 /* Stats */,
 				6BC2ACB4289B3E3500081838 /* Note */,
 			);
-			path = StandinsDTO;
+			path = SeasonDetailDTO;
 			sourceTree = "<group>";
 		};
 		6BC2ACC9289BA17700081838 /* League Detail */ = {
@@ -458,6 +469,55 @@
 				6BC2ACD5289BBC1100081838 /* ErrorViewProtocol.swift */,
 			);
 			path = "ErrorView Protocol";
+			sourceTree = "<group>";
+		};
+		6BC2ACD8289BDA3C00081838 /* League Season Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2ACDA289BDA6100081838 /* Presenter */,
+				6BC2ACD9289BDA5A00081838 /* Views */,
+			);
+			path = "League Season Detail View";
+			sourceTree = "<group>";
+		};
+		6BC2ACD9289BDA5A00081838 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2ACDB289BDA7700081838 /* SeasonTable */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6BC2ACDA289BDA6100081838 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2ACDE289BDAA900081838 /* LeagueSeasonDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6BC2ACDB289BDA7700081838 /* SeasonTable */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2ACDC289BDA9300081838 /* SeasonTableView.swift */,
+			);
+			path = SeasonTable;
+			sourceTree = "<group>";
+		};
+		6BC2ACE0289BDBFE00081838 /* Season Detail Model */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2ACE1289BDC1D00081838 /* SeasonDetailModel.swift */,
+			);
+			path = "Season Detail Model";
+			sourceTree = "<group>";
+		};
+		6BC2ACE3289BDCF500081838 /* Season Detail Data */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2ACE4289BDD0400081838 /* SeasonDetailData.swift */,
+			);
+			path = "Season Detail Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,9 +616,13 @@
 				6BC2ACB3289B3E2600081838 /* Note.swift in Sources */,
 				6BC2ACC6289B9D6E00081838 /* LeaguesList.swift in Sources */,
 				6BC2AC5A289ADC8F00081838 /* FootballStandingsAppApp.swift in Sources */,
+				6BC2ACDD289BDA9300081838 /* SeasonTableView.swift in Sources */,
 				6BC2AC80289AE19000081838 /* SeasonDetail.swift in Sources */,
+				6BC2ACE5289BDD0400081838 /* SeasonDetailData.swift in Sources */,
 				6BC2AC83289AE21A00081838 /* Stats.swift in Sources */,
 				6BC2ACA0289B13E400081838 /* ErrorView.swift in Sources */,
+				6BC2ACDF289BDAA900081838 /* LeagueSeasonDetailPresenter.swift in Sources */,
+				6BC2ACE2289BDC1D00081838 /* SeasonDetailModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
