@@ -78,16 +78,17 @@ extension SeasonList {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(type.name)
                             .fixedSize(horizontal: false, vertical: true)
-                        .font(.caption)
+                            .font(.caption)
                         
                         Text("\(type.startDate.dateToString(style: .short)) - \(type.endDate.dateToString(style: .short))")
-                        .font(.caption2)
+                            .font(.caption2)
                         
                         Divider()
                             .background(Color.white)
                             .opacity(season.types.count > 1 ? 1 : 0)
+                            .opacity(season.types.last?.id != type.id ? 1 : 0)
                     }
-                    .padding(.top)
+                    .padding(.top, season.types.count > 1 ? 10 : 0)
                     
                     Spacer()
                 }
