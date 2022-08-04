@@ -9,7 +9,7 @@ import SwiftUI
 
 protocol LeagueDetailProtocol: errorViewProtocol {
     func fetchSeason(with leagueID: String) async
-    func showAllSeasonsScreen()
+    func showSeasonsDetailScreen()
 }
 
 class LeagueDetailPresenter: ObservableObject {
@@ -21,13 +21,15 @@ class LeagueDetailPresenter: ObservableObject {
     //MARK: - Properties
     
     @Published var status: ViewStatus = .loading
-    @Published var league: League
     @Published var seasons: SeasonDetail?
     @Published var isErrorViewActive = false
     @Published var errorDescription = String()
     @Published var currentSeason = String()
     @Published var showDetail = false
-    @Published var showAllSeasonsView = false
+    @Published var showSeasonsDetailView = false
+    
+    var league: League
+    var leagueSeasonDetailPresenter: LeagueSeasonDetailPresenter?
     var isSeasonHasHistory: Bool {
         guard let season = seasons?.seasons else {
             return false
@@ -61,8 +63,10 @@ extension LeagueDetailPresenter: LeagueDetailProtocol {
         }
     }
     
-    func showAllSeasonsScreen() {
-        showAllSeasonsView = true
+    func showSeasonsDetailScreen() {
+        let leagueSeasonDetailPresenter = LeagueSeasonDetailPresenter(league: league, footballStandingsService: footballStandingsService)
+        self.leagueSeasonDetailPresenter = leagueSeasonDetailPresenter
+        showSeasonsDetailView = true
     }
     
     func showErrorView(description: String) {

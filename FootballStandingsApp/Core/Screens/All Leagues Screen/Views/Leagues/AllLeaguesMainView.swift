@@ -29,7 +29,7 @@ struct AllLeaguesMainView: View {
                 }
                 
                 NavigationLink(isActive: $store.showLeagueDetailView) {
-                    if let presenter = store.showLeagueDetailPresenter {
+                    if let presenter = store.leagueDetailPresenter {
                         LeagueDetailView(store: presenter, presenter: presenter)
                     }
                 } label: { EmptyView() }

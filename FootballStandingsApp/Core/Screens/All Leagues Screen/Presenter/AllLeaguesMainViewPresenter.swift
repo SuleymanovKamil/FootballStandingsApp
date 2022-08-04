@@ -26,7 +26,7 @@ class AllLeaguesMainViewPresenter: ObservableObject {
     @Published var isErrorViewActive = false
     @Published var errorDescription = String()
     @Published var showLeagueDetailView = false
-    @Published var showLeagueDetailPresenter: LeagueDetailPresenter?
+    var leagueDetailPresenter: LeagueDetailPresenter?
     
     init(footballStandingsService: FootballStandingsService) {
         self.footballStandingsService = FootballStandingsRequest()
@@ -53,8 +53,8 @@ extension AllLeaguesMainViewPresenter: AllLeaguesMainViewProtocol {
     }
     
     func showLeagueDetailScreen(with league: League) {
-        let showDetailPresenter = LeagueDetailPresenter(league: league, footballStandingsService: footballStandingsService)
-        showLeagueDetailPresenter = showDetailPresenter
+        let leagueDetailPresenter = LeagueDetailPresenter(league: league, footballStandingsService: footballStandingsService)
+        self.leagueDetailPresenter = leagueDetailPresenter
         showLeagueDetailView = true
     }
     

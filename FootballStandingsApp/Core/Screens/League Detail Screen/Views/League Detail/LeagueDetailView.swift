@@ -30,6 +30,12 @@ struct LeagueDetailView: View {
             }
         }
         .navigationTitle("Seasons")
+        
+        NavigationLink(isActive: $store.showSeasonsDetailView) {
+            if let presenter = store.leagueSeasonDetailPresenter {
+                SeasonTableView(store: presenter, presenter: presenter)
+            }
+        } label: { EmptyView() }
     }
 }
 

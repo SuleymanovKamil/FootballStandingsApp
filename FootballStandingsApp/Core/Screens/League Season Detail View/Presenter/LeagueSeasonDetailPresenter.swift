@@ -22,11 +22,13 @@ class LeagueSeasonDetailPresenter: ObservableObject {
     @Published var status: ViewStatus = .loading
     @Published var isErrorViewActive = false
     @Published var errorDescription = String()
+    var league: League
     
-    init(footballStandingsService: FootballStandingsService) {
+    init(league: League, footballStandingsService: FootballStandingsService) {
+        self.league = league
         self.footballStandingsService = FootballStandingsRequest()
         Task {
-            await fetchSeason(id: "String")
+            await fetchSeason(id: league.id)
         }
     }
     
