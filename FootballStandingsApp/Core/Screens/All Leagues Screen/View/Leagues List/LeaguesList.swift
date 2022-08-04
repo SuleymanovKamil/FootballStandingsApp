@@ -25,6 +25,8 @@ struct LeaguesList: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(league.name)
+                        .fixedSize(horizontal: false, vertical: true)
+                    
                     Text(league.abbr)
                         .font(.caption2)
                         .foregroundColor(.secondary)

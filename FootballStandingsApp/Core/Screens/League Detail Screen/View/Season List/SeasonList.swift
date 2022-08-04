@@ -18,6 +18,7 @@ struct SeasonList: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(season.displayName)
                             .font(.headline)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         Text("Season period: \(season.startDate.dateToString(style: .short)) - \(season.endDate.dateToString(style: .short))")
                             .font(.caption2)
@@ -67,10 +68,10 @@ extension SeasonList {
         VStack(alignment: .leading, spacing: 6) {
             ForEach(season.types, id: \.id) { type in
                 HStack {
-                    Text(type.name)
-                    
                     Text("\(type.startDate.dateToString(style: .short)) - \(type.endDate.dateToString(style: .short))")
-                        .font(.caption2)
+        
+                    Text(type.name)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     Spacer()
                 }
