@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+enum ViewStatus {
+    case loading, loaded, error
+}
+
 protocol errorViewProtocol: AnyObject {
     func showErrorView(description: String)
     var isErrorViewActive: Bool { set get }
+    var status: ViewStatus { get set}
 }
-
 
 protocol AllLeaguesMainViewProtocol: errorViewProtocol {
     func fetchLeagues() async
@@ -27,6 +31,7 @@ class AllLeaguesMainViewPresenter: ObservableObject {
     
     //MARK: - Properties
 
+    @Published var status: ViewStatus = .loading
     @Published var leagues: [League] = []
     @Published var isErrorViewActive = false
     @Published var errorDescription = String()
@@ -50,7 +55,9 @@ extension AllLeaguesMainViewPresenter: AllLeaguesMainViewProtocol {
         switch result {
         case .success(let data):
             leagues = data.data
+            status = .loaded
         case .failure(let error):
+            status = .error
             showErrorView(description: error.localizedDescription)
         }
     }

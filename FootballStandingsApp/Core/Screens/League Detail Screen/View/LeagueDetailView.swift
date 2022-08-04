@@ -19,9 +19,11 @@ struct LeagueDetailView: View {
     var body: some View {
         ZStack(alignment: .center) {
             VStack {
-//                if let seasons = store.seasons, let name = seasons.name {
-//                    Text(name)
-//                }
+                if let seasons = store.seasons, let name = seasons.name {
+                    Text(name)
+                } else {
+                    ProgressView()
+                }
             }
             
             if store.isErrorViewActive {

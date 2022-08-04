@@ -20,6 +20,7 @@ class LeagueDetailPresenter: ObservableObject {
     
     //MARK: - Properties
     
+    @Published var status: ViewStatus = .loading
     @Published var league: League
     @Published var seasons: SeasonDetail?
     @Published var isErrorViewActive = false
@@ -43,10 +44,11 @@ extension LeagueDetailPresenter: LeagueDetailProtocol {
         let result = await footballStandingsService.fetchSeasons(id: leagueID)
         switch result {
         case .success(let data):
-          print(data)
+            seasons = data.data
+            status = .loaded
         case .failure(let error):
-            print("FFF", error)
             showErrorView(description: error.localizedDescription)
+            status = .error
         }
     }
     

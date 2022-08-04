@@ -19,33 +19,12 @@ struct AllLeaguesMainView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .center) {
-                List(store.leagues, id: \.id) { league in
-                    HStack(spacing: 12) {
-                        AsyncImage(url: URL(string: league.logos.light)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            Image(systemName: "photo.circle")
-                                .resizable()
-                                .foregroundColor(.gray)
-                                .frame(width: 50, height: 50)
-                        }
-                        .frame(width: 50, height: 50)
-                        
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(league.name)
-                            Text(league.abbr)
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                    .onTapGesture {
-                        presenter.showLeagueDetailScreen(with: league)
-                    }
-                }
-                .navigationBarTitle("All Leagues")
-                .listStyle(.plain)
-                
-                if store.isErrorViewActive {
+                switch store.status {
+                case .loading:
+                    ProgressView()
+                case .loaded:
+                    LeaguesList(store: store, presenter: presenter)
+                case .error:
                     ErrorView(errorText: store.errorDescription)
                 }
                 

@@ -10,7 +10,7 @@ import Foundation
 protocol FootballStandingsService {
     func fetchLeagues() async -> Result<Leagues, RequestError>
     func fetchLeagueDetail(id: String) async -> Result<League, RequestError>
-    func fetchSeasons(id: String) async -> Result<Seasons, RequestError>
+    func fetchSeasons(id: String) async -> Result<SeasonsAvailable, RequestError>
     func fetchSeasonDetail(id: String)  async -> Result<SeasonDetail, RequestError>
 }
 
@@ -23,8 +23,8 @@ struct FootballStandingsRequest: HTTPClient, FootballStandingsService {
         return await sendRequest(endpoint: Endpoint.getLeagueDetail(id: id), responseModel: League.self)
     }
     
-    func fetchSeasons(id: String) async -> Result<Seasons, RequestError> {
-        return await sendRequest(endpoint: Endpoint.getSeasons(id: id), responseModel: Seasons.self)
+    func fetchSeasons(id: String) async -> Result<SeasonsAvailable, RequestError> {
+        return await sendRequest(endpoint: Endpoint.getSeasons(id: id), responseModel: SeasonsAvailable.self)
     }
     
     func fetchSeasonDetail(id: String) async -> Result<SeasonDetail, RequestError> {
