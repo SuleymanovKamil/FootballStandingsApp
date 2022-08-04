@@ -59,27 +59,42 @@ extension SeasonList {
             store.currentSeason = season.displayName
             store.showDetail = true
         } label: {
-            Text(store.showDetail && store.currentSeason == season.displayName ? "Hide" : "Show season history")
-                .font(.callout)
-                .foregroundColor(.blue)
+            HStack {
+                let isSeasonHistoryActive = store.showDetail && store.currentSeason == season.displayName
+                Text(isSeasonHistoryActive ? "Hide" : "Show season history")
+                    .font(.callout)
+                
+                Image(systemName: (isSeasonHistoryActive ? "chevron.up" : "chevron.down" ))
+                    .font(.caption2)
+                    .offset(y: 1)
+            }
+            .foregroundColor(.blue)
         }
     }
     private func seasonHistory(season: Season) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             ForEach(season.types, id: \.id) { type in
                 HStack {
-                    Text("\(type.startDate.dateToString(style: .short)) - \(type.endDate.dateToString(style: .short))")
-        
-                    Text(type.name)
-                        .fixedSize(horizontal: false, vertical: true)
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(type.name)
+                            .fixedSize(horizontal: false, vertical: true)
+                        .font(.caption)
+                        
+                        Text("\(type.startDate.dateToString(style: .short)) - \(type.endDate.dateToString(style: .short))")
+                        .font(.caption2)
+                        
+                        Divider()
+                            .background(Color.white)
+                            .opacity(season.types.count > 1 ? 1 : 0)
+                    }
+                    .padding(.top)
                     
                     Spacer()
                 }
-                .font(.caption2)
             }
         }
         .foregroundColor(.white)
         .padding()
-        .background(Color(UIColor.lightGray))
+        .background(Color(UIColor.lightGray).cornerRadius(10))
     }
 }
