@@ -12,11 +12,13 @@ struct SeasonRank: View {
     var presenter: LeagueSeasonDetailProtocol
     
     var body: some View {
-        VStack (alignment: .leading, spacing: 0) {
-            seasonsScrollView
-            seasonsRank
+        ScrollView {
+            VStack (alignment: .leading, spacing: 0) {
+                seasonsScrollView
+                seasonsRank
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
@@ -34,19 +36,25 @@ extension SeasonRank {
                 Text("All Seasons:")
                     .font(.headline)
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(seasons, id:\.year) { season in
-                            Button {
-                                Task {
-                                    store.status = .loading
-                                    await store.fetchSeason(id: store.league.id, year: season.year)
+                ScrollViewReader { proxy in
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(seasons, id:\.year) { season in
+                                Button {
+                                    Task {
+                                        store.status = .loading
+                                        await store.fetchSeason(id: store.league.id, year: season.year)
+                                    }
+                                } label: {
+                                    Text(String(season.year))
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 3)
+                                        .background((season.year == store.season?.season ? Color.black.opacity(0.06) :  Color.white).cornerRadius(4))
                                 }
-                            } label: {
-                                Text(String(season.year))
-                                    .padding(.horizontal)
-                                    .padding(.vertical, 3)
-                                    .background((season.year == store.season?.season ? Color.black.opacity(0.06) :  Color.white).cornerRadius(4))
+                                .id(season.year)
+                            }
+                            .onAppear {
+                                proxy.scrollTo(store.season?.season)
                             }
                         }
                     }

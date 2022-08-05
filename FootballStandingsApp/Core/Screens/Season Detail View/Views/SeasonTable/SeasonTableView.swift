@@ -16,21 +16,19 @@ struct SeasonTableView: View {
         self.presenter = presenter
     }
     var body: some View {
-            ZStack(alignment: .center) {
-                switch store.status {
-                case .loading:
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                case .loaded:
-                    ScrollView {
-                        SeasonRank(store: store, presenter: presenter)
-                    }
-                case .error:
-                    ErrorView(errorText: store.errorDescription)
-                }
+        ZStack(alignment: .center) {
+            switch store.status {
+            case .loading:
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            case .loaded:
+                SeasonRank(store: store, presenter: presenter)
+            case .error:
+                ErrorView(errorText: store.errorDescription)
             }
-            .navigationBarTitle(store.season?.seasonDisplay ?? "")
         }
+        .navigationBarTitle(store.season?.seasonDisplay ?? "")
+    }
 }
 
 struct SeasonTableView_Previews: PreviewProvider {
