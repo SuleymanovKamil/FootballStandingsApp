@@ -156,7 +156,7 @@
 		6BC2AC69289ADCCF00081838 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				6BC2ACD8289BDA3C00081838 /* League Season Detail View */,
+				6BC2ACD8289BDA3C00081838 /* Season Detail View */,
 				6BC2AC9D289B11EE00081838 /* League Detail Screen */,
 				6BC2AC6C289ADDBA00081838 /* All Leagues Screen */,
 			);
@@ -476,13 +476,13 @@
 			path = "ErrorView Protocol";
 			sourceTree = "<group>";
 		};
-		6BC2ACD8289BDA3C00081838 /* League Season Detail View */ = {
+		6BC2ACD8289BDA3C00081838 /* Season Detail View */ = {
 			isa = PBXGroup;
 			children = (
 				6BC2ACDA289BDA6100081838 /* Presenter */,
 				6BC2ACD9289BDA5A00081838 /* Views */,
 			);
-			path = "League Season Detail View";
+			path = "Season Detail View";
 			sourceTree = "<group>";
 		};
 		6BC2ACD9289BDA5A00081838 /* Views */ = {
