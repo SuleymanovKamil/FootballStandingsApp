@@ -1,5 +1,5 @@
-# Приложения для работы с открытым API Football Standings.  
-Стек:   
+# Football Standings AIP app.  
+Stack:   
 SwiftUI   
 MVP   
 Async/Await   
