@@ -1,4 +1,6 @@
-# Football Standings AIP app.  
+# Football Standings AIP app  
+https://github.com/azharimm/football-standings-api   
+
 Stack:   
 SwiftUI   
 MVP   
