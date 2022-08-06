@@ -1,4 +1,4 @@
-# Football Standings AIP app  
+# Football Standings API app  
 https://github.com/azharimm/football-standings-api   
 
 Stack:   
